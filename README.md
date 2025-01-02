@@ -3,4 +3,6 @@ https://github.com/connermcd
 
 modied by Rdk0 nov 29, 2024 to add the journal name to the title 
 
-runall - iterates over all pdfs in a given directory
+notate2 - processes one pdf at a time
+
+runall - iterates over all pdfs in a given directory and uses notete2 for processing
