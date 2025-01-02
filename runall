@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Iterate over all .pdf files in the directory $1
+directory=$1
+
+for file in "$directory"/*.pdf; do
+#$echo "processing $file"
+    # Check if the file exists
+    if [[ -f "$file" ]]; then
+        # Replace spaces with underscores in the filename
+        new_file=$(echo "$file" | tr ' ' '_')
+        echo "after removing spaces $new_file \n"
+        # Rename the file
+        mv "$file" "$new_file"
+        
+        # Run the notate script on the renamed file
+        ./notate2.txt "$new_file"
+    fi
+done
