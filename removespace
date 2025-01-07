@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 # Loop through all .md and .pdf files in the current directory and replace spaces with underscore
-for file in "$1"/*.md "$1"/*.pdf; do
+for file in "$1"/*.md "$1"/md/*.md "$1"/*.pdf; do
   # Check if the file exists (in case there are no .md or .pdf files)
   if [[ -e "$file" ]]; then
     # Replace spaces with underscores in the filename
