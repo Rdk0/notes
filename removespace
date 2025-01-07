@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Loop through all .md and .pdf files in the current directory and replace spaces with underscore
+for file in *.md *.pdf; do
+  # Check if the file exists (in case there are no .md or .pdf files)
+  if [[ -e "$file" ]]; then
+    # Replace spaces with underscores in the filename
+    new_file=$(echo "$file" | tr ' ' '_')
+    # Rename the file
+    mv "$file" "$new_file"
+  fi
+done
