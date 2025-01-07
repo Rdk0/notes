@@ -13,4 +13,4 @@ runall /path/dir - iterates over all pdfs in a given directory and uses notate2 
 
 renameamp /path/dir - replaces "amps;" present in some journal names with "and" for all .md and .pdf files in directory
 
-removespace /path/dir - replaces all speces in .md and .pdf files in directory
+removespace /path/dir - replaces all spaces in files ending with .md and .pdf files in directory
