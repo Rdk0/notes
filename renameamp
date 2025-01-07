@@ -9,7 +9,7 @@ if [ -z "$1" ]; then
 fi
 
 # Loop through all PDF files in the current directory
-for file in "$1"/*.pdf; do
+for file in "$1"/md/*.md "$1"/*.md "$1"/*.pdf; do
   # Check if the file name contains "&amp;"
   if [[ "$file" == *"&amp;"* ]]; then
     # Replace "&amp;" with "and" in the file name
