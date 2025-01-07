@@ -1,7 +1,7 @@
 Author: Conner McDaniel - "Note and citation system with vim and pandoc" https://www.youtube.com/watch?v=nXgqnYVAzKk&t=8s
 https://github.com/connermcd
 
-modied by Rdk0 nov 29, 2024 to add the journal name to the title 
+modied by Rdk0 nov 29, 2024 to add the journal name to the title and files for batch processing: runall, renameamp, removespace"
 
 notate2 - processes one pdf at a time
 
