@@ -9,4 +9,8 @@ Example
 
 ./notate2 /path/file.pdf generates two files in the same directory, for example "/path/Zhao_2022_Pharmaceuticals.pdf" and "/path/Zhao_2022_Pharmaceuticals.md".  The .pdf just replaces file.pdf
 
-runall - iterates over all pdfs in a given directory and uses notate2 for processing
+runall /path/dir - iterates over all pdfs in a given directory and uses notate2 for processing
+
+renameamps /path/dir - replaces "amps;" present in some journal names with "and" for all .md and .pdf files in directory
+
+removespace /path/dir - replaces all speces in .md and .pdf files in directory
