@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if a directory was provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 directory"
+  exit 1
+fi
+
 # Loop through all .md and .pdf files in the current directory and replace spaces with underscore
 for file in *.md *.pdf; do
   # Check if the file exists (in case there are no .md or .pdf files)
