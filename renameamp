@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# rename all files containing "&amp" in the directory provided
+
+# Check if a directory was provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 directory"
+  exit 1
+fi
+
+# Loop through all PDF files in the current directory
+for file in "$1"/*.pdf; do
+  # Check if the file name contains "&amp;"
+  if [[ "$file" == *"&amp;"* ]]; then
+    # Replace "&amp;" with "and" in the file name
+    new_file="${file//&amp;/and}"
+    # replace spaces with _
+      new_file="${new_file// /_}"
+    # Rename the file
+    mv "$file" "$new_file"
+  fi
+done
