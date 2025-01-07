@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if a directory was provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 directory"
+  exit 1
+fi
+
 # Iterate over all .pdf files in the directory $1
 directory=$1
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
