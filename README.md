@@ -11,6 +11,6 @@ Example
 
 runall /path/dir - iterates over all pdfs in a given directory and uses notate2 for processing
 
-renameamps /path/dir - replaces "amps;" present in some journal names with "and" for all .md and .pdf files in directory
+renameamp /path/dir - replaces "amps;" present in some journal names with "and" for all .md and .pdf files in directory
 
 removespace /path/dir - replaces all speces in .md and .pdf files in directory
