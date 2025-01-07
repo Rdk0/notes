@@ -3,7 +3,7 @@
 # Author: Conner McDaniel
 # https://github.com/connermcd/bin
 # MIT license
-#modied by RDK0 nov 29, 2024 to add the journal name to the title 
+#modied by me nov 29, 2024 to add the journal name to the title 
 
 
 set -e
@@ -22,11 +22,12 @@ echo "concatenated $concatenated"
 
 
 make_file() {
-	new_pdf="$(dirname $pdf)/$1.pdf"
+	new_pdf=$pdf#"$(dirname $pdf)/$1.pdf"
 	echo "new .pdf $new_pdf"
         md_dir="$(dirname $pdf)/md"
         mkdir -p $md_dir
-        new_md="$md_dir/$1.md"
+	filename=${pdf##*/}
+        new_md="$md_dir/$filename.md"
 	echo "new .md $new_md"
 	[[ ! -f "$new_pdf" ]] && mv "$pdf" "$new_pdf"
 	bib_content=$(echo "$bib" | sed 's/@article{//' | sed 's/}$//')
