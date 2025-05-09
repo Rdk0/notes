@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Author: Conner McDaniel
+# https://github.com/connermcd/bin
+# MIT license
+#modied by me nov 29, 2024 to add the journal name to the title 
+
+
+set -e
+
+pdf="$1"
+echo "pdf in notate2 is $pdf"
+doi="$(pdf2doi $pdf)"
+echo $doi
+bib=$(curl -s "https://api.crossref.org/works/$doi/transform/application/x-bibtex")
+
+author_year=$(echo "$bib" | grep -oP '(?<=@article{)[^,]+')
+journal=$(echo "$bib" | grep -oP '(?<=journal={)[^}]+')
+journal=$(echo "$journal" | tr ' ' '_')
+concatenated="${author_year}_${journal}"
+echo "concatenated $concatenated"
+
+
+make_file() {
+	new_pdf="$(dirname $pdf)/$1.pdf"
+	echo "new .pdf $new_pdf"
+        md_dir="$(dirname $pdf)/md"
+        mkdir -p $md_dir
+        new_md="$md_dir/$1.md"
+	echo "new .md $new_md"
+	[[ ! -f "$new_pdf" ]] && mv "$pdf" "$new_pdf"
+	bib_content=$(echo "$bib" | sed 's/@article{//' | sed 's/}$//')
+	json_content=$(echo "$bib_content" | sed 's/, /,\n/g' | sed 's/=/": "/g' | sed 's/^/"/' | sed 's/$/"/' | sed 's/\n"/,\n"/g' | sed 's/},/}/g')
+	#json_content_jq="echo "$json_content" | jq ."
+	cat > $new_md <<EOF
+~~~.bib
+$json_content
+~~~
+
+# Summary
+
+# Quotes and Data
+
+# Questions
+EOF
+	}
+
+make_file $concatenated

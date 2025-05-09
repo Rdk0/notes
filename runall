@@ -21,6 +21,6 @@ for file in "$directory"/*.pdf; do
         mv "$file" "$new_file"
         
         # Run the notate script on the renamed file
-        $SCRIPT_DIR/notate2.txt "$new_file"
+        $SCRIPT_DIR/run1.txt "$new_file"
     fi
 done
